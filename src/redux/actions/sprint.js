@@ -4,13 +4,14 @@ export const types = {
   SPRINT_ERROR: "SPRINT/FETCH_SPRINT_ERROR",
 };
 
+const StorageData = JSON.parse(window.localStorage.getItem("SprintDetail"));
+
 export const fetchSprints = () => (dispatch) => {
   dispatch({
     type: types.SPRINT_START,
   });
-
   return dispatch({
     type: types.SPRINT_SUCCESS,
-    sprint: JSON.parse(window.localStorage.getItem("SprintDetail")),
+    sprint: StorageData,
   });
 };
